@@ -1,132 +1,198 @@
-:root {
-    --cor0: #A9A9A9;
-    --cor1: #D9BFFF;
-    --cor2: #475A82;
-    --cor3: #475A82;
-    --cor4: #003366;
-    --cor5: #8B0000;
-    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
-    --fonte-destaque: 'Bebas Neue', cursive;
-    --fonte-android: 'Android', cursive;
-}
-
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
+/* ======== ESTILO GERAL (NEON GAMER) ======== */
 body {
-    background-color: var(--cor0);
-    font-family: var(--fonte-padrao);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #080808;
+    color: #e6e6e6;
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* ======== ANIMAÇÕES ======== */
+@keyframes neonPulse {
+    0% { box-shadow: 0 0 10px #ff00ccaa; }
+    50% { box-shadow: 0 0 25px #ff00ccdd; }
+    100% { box-shadow: 0 0 10px #ff00ccaa; }
+}
+
+@keyframes glowText {
+    0% { text-shadow: 0 0 10px #ffffff66; }
+    50% { text-shadow: 0 0 20px #ffffffcc; }
+    100% { text-shadow: 0 0 10px #ffffff66; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes borderGlow {
+    0% { border-color: #ff00cc; }
+    50% { border-color: #00eaff; }
+    100% { border-color: #ff00cc; }
+}
+
+@keyframes headerGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ======== CABEÇALHO ======== */
 header {
-    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
-    min-height: 150px;
     text-align: center;
-    padding-top: 40px;
-}
-
-header > h1 {
+    background: linear-gradient(90deg, #ff00cc, #6600ff, #00eaff);
+    background-size: 300% 300%;
+    animation: headerGradient 6s infinite linear;
+    padding: 40px 20px;
     color: white;
-    font-family: var(--fonte-destaque);
-    font-size: 3em;
-    font-weight: normal;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+    box-shadow: 0 0 20px #ff00cc;
 }
 
-header > p {
-    font-family: var(--fonte-padrao);
-    font-size: 1.2em;
-    color: white;
-    max-width: 600px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin: auto;
-    padding-bottom: 50px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315);
+header h1 {
+    margin: 0;
+    font-size: 2.7em;
+    animation: glowText 2.5s infinite;
 }
 
+/* ======== MENU ======== */
 nav {
-    background-color: var(--cor5);
-    padding: 10px;
-    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.192);
+    display: flex;
+    justify-content: center;
+    background: #111;
+    padding: 12px 0;
+    border-bottom: 2px solid #6600ff;
+    animation: neonPulse 3s infinite;
 }
 
-nav > a {
-    color: var(--cor1);
-    padding: 10px;
-    border-radius: 5px;
+nav a {
+    margin: 0 20px;
+    color: #00eaff;
     text-decoration: none;
     font-weight: bold;
-    transition-duration: .5s;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px #00eaff;
+    transition: 0.3s;
+    position: relative;
 }
 
-nav > a:hover {
-    background-color: var(--cor3);
-    color: var(--cor5);
+nav a:hover {
+    color: #ff00cc;
+    text-shadow: 0 0 12px #ff00cc;
 }
 
+/* ======== ÁREA DAS NOTÍCIAS ======== */
 main {
-    min-width: 300px;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 900px;
     margin: auto;
+    padding: 20px 0;
+}
+
+/* BOX DE NOTÍCIA COM EFEITO NEON */
+.noticia {
+    background: #111;
+    padding: 25px;
     margin-bottom: 30px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 12px;
+    border-left: 4px solid #ff00cc;
+    box-shadow: 0 0 15px #ff00cc33;
+    transition: 0.3s;
+    animation: float 4s infinite ease-in-out;
 }
 
-main h1 {
-    color: var(--cor5);
-    font-family: var(--fonte-android);
-    font-weight: normal;
-    font-size: 1.8em;
+/* Efeito hover brilhante */
+.noticia:hover {
+    box-shadow: 0 0 25px #ff00ccaa;
 }
 
-main h2 {
-    font-family: var(--fonte-android);
-    color: var(--cor4);
-    font-size: 1.3em;
-    font-weight: normal;
-    background-image: linear-gradient(to right, var(--cor1), transparent);
-    text-indent: 8px;
+/* TITULOS EM NEON */
+.noticia h1 {
+    color: #ff00cc;
+    text-shadow: 0 0 10px #ff00ccaa;
+    animation: glowText 3s infinite;
 }
 
-main p {
-    margin: 15px 0px;
+/* TEXTOS MAIS DIREITOS (JUSTIFICADOS) */
+.noticia p,
+.texto-long {
     text-align: justify;
-    text-indent: 30px;
-    font-size: 1em;
-    line-height: 2em;
+    line-height: 1.6;
+    color: #eaeaea;
+    font-size: 1.05em;
 }
 
-aside {
-    background-color: var(--cor1);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
-}
-
-aside > h3 {
-    background-color: var(--cor4);
-    color: white;
-    padding: 10px;
-    margin: -10px -10px 0px -10px;
-    border-radius: 10px 10px 0px 0px;
-}
-
-footer {
-    background-color: var(--cor5);
-    color: white;
+/* ======== IMAGENS ======== */
+.center {
     text-align: center;
-    font-size: 0.8em;
-    padding: 5px;
+    margin: 20px 0;
 }
 
-.container {
-  text-align: center;
+img {
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 0 20px #5500ff55;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px #7700ffcc;
+}
+
+/* ======== BOTÕES NEON ======== */
+.btn {
+    display: inline-block;
+    background: #ff00cc;
+    padding: 12px 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 8px white;
+    box-shadow: 0 0 12px #ff00cc88;
+    transition: 0.3s;
+    animation: neonPulse 2.5s infinite;
+}
+
+.btn:hover {
+    background: #00eaff;
+    box-shadow: 0 0 15px #00eaffaa;
+    text-shadow: 0 0 10px #ffffffcc;
+}
+
+/* ======== ASIDE (BARRA DE SUGESTÃO) ======== */
+.recado {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 700px;
+    border-radius: 10px;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 15px #00eaff88;
+    animation: borderGlow 4s infinite;
+}
+
+.recado h3 {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaffaa;
+    animation: glowText 2s infinite;
+}
+
+/* ======== RODAPÉ ======== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #777;
+    border-top: 2px solid #6600ff;
+    box-shadow: 0 0 12px #6600ff55;
+    animation: fadeIn 1.5s ease-in-out;
 }
